@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using BlazorWebAssembly.Data.Models.ApplicationModels;
+using BlazorWebAssembly.Data.Models.DeletableModels.Interfaces;
+using BlazorWebAssembly.Data.Models.DemoModels;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BlazaorWebAssembly.Data
+namespace BlazorWebAssembly.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace BlazaorWebAssembly.Data
+namespace BlazorWebAssembly.Data
 {
     public class DesignTimeDbFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {

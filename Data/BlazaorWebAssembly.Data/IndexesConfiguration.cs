@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BlazorWebAssembly.Data.Models.DeletableModels.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace BlazaorWebAssembly.Data
+namespace BlazorWebAssembly.Data
 {
     internal static class IndexesConfiguration
     {

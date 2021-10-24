@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\BlazaorWebAssembly.Data\BlazorWebAssembly.Data.csproj" />
+    <ProjectReference Include="..\..\Data\BlazorWebAssembly.Data.Models\BlazorWebAssembly.Data.Models.csproj" />
+  </ItemGroup>
+
+</Project>

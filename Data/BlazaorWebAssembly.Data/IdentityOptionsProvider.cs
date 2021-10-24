@@ -1,6 +1,8 @@
-﻿namespace BlazaorWebAssembly.Data
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace BlazorWebAssembly.Data
 {
-    public static class IdentityOptions
+    public static class IdentityOptionsProvider
     {
         public static void GetIdentityOptions(IdentityOptions options)
         {
