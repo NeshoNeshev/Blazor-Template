@@ -2,7 +2,7 @@
 {
     public static class GlobalConstants
     {
-        public const string ApplicationName = "TemplateBlazor";
+        public const string ApplicationName = "BlazorWebAssembly";
 
         public const string AdministratorRoleName = "Administrator";
 
