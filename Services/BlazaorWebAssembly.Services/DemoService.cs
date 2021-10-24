@@ -1,5 +1,6 @@
 ﻿using BlazaorWebAssembly.Services.Interfaces;
 using BlazorWebAssembly.Data.Models.DemoModels;
+using BlazorWebAssembly.Repository.Interfaces;
 using System.Linq;
 
 namespace BlazaorWebAssembly.Services

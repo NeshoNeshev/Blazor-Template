@@ -1,7 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.15.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\BlazorWebAssembly.Data.Models\BlazorWebAssembly.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Repository\BlazorWebAssembly.Repository\BlazorWebAssembly.Repository.csproj" />
+  </ItemGroup>
 
 </Project>
