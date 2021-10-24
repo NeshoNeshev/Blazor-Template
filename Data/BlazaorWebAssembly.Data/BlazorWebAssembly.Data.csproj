@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\BlazorWebAssembly.Common\BlazorWebAssembly.Common.csproj" />
     <ProjectReference Include="..\BlazorWebAssembly.Data.Models\BlazorWebAssembly.Data.Models.csproj" />
   </ItemGroup>
 
