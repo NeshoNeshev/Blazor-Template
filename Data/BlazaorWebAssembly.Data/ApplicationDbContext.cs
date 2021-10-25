@@ -1,6 +1,7 @@
 ﻿using BlazorWebAssembly.Data.Models.ApplicationModels;
 using BlazorWebAssembly.Data.Models.DeletableModels.Interfaces;
 using BlazorWebAssembly.Data.Models.DemoModels;
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -125,4 +126,12 @@ namespace BlazorWebAssembly.Data
             }
         }
     }
+    //public class ApplicationDbContext1 : ApiAuthorizationDbContext<ApplicationUser>
+    //{
+    //    public ApplicationDbContext1(
+    //        DbContextOptions options,
+    //        IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+    //    {
+    //    }
+    //}
 }

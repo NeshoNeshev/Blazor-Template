@@ -2,5 +2,6 @@
 {
     public class IApiClient
     {
+       // Task<ApiResponse<DemoResponseModel>> GetDemo();
     }
 }

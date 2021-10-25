@@ -1,26 +1,30 @@
-using BlazorWebAssembly.Server.Data;
-using BlazorWebAssembly.Server.Models;
+using BlazaorWebAssembly.Services;
+using BlazaorWebAssembly.Services.Interfaces;
+using BlazorWebAssembly.Data;
+using BlazorWebAssembly.Data.Models.ApplicationModels;
+using BlazorWebAssembly.Repository;
+using BlazorWebAssembly.Repository.Interfaces;
+using BlazorWebAssembly.Services.Messaging;
+using BlazorWebAssembly.Services.Messaging.Interfaces;
+using CloudinaryDotNet;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Linq;
 
 namespace BlazorWebAssembly.Server
 {
     public class Startup
     {
+        private readonly IConfiguration configuration;
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -28,11 +32,11 @@ namespace BlazorWebAssembly.Server
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    this.configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(IdentityOptionsProvider.GetIdentityOptions)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentityServer()
@@ -43,6 +47,21 @@ namespace BlazorWebAssembly.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            // Cloudinary account
+            services.AddSingleton(new CloudinaryDotNet.Cloudinary(new Account(this.configuration["Cloudinary:AppName"],
+                this.configuration["Cloudinary:AppKey"],
+                this.configuration["Cloudinary:AppSecret"])));
+
+            // Data repositories
+            services.AddScoped(typeof(IDeletableRepository<>), typeof(DeletableRepository<>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            // Application services
+            services.AddTransient<IEmailSender>(
+                serviceProvider => new SendGridEmailSender(this.configuration["SendGrid:ApiKey"]));
+            services.AddTransient<IDemoService, DemoService>();
+            services.AddTransient<ICloudinaryService, CloudinaryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
