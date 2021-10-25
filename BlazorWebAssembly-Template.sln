@@ -11,17 +11,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssembly.Data.Mode
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{37C6945E-8800-4661-AB33-23FFB20E833F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly.Repository", "Repository\BlazorWebAssembly.Repository\BlazorWebAssembly.Repository.csproj", "{2ADB69A4-4FBE-4D58-ABA4-8C473FF5B3F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssembly.Repository", "Repository\BlazorWebAssembly.Repository\BlazorWebAssembly.Repository.csproj", "{2ADB69A4-4FBE-4D58-ABA4-8C473FF5B3F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2287C6A8-812A-4BD5-A6EA-1F6BF044ECF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazaorWebAssembly.Services", "Services\BlazaorWebAssembly.Services\BlazaorWebAssembly.Services.csproj", "{F054FDBD-ABD2-488F-8595-859E3CF5317B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazaorWebAssembly.Services", "Services\BlazaorWebAssembly.Services\BlazaorWebAssembly.Services.csproj", "{F054FDBD-ABD2-488F-8595-859E3CF5317B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly.Services.Messaging", "Services\BlazorWebAssembly.Services.Messaging\BlazorWebAssembly.Services.Messaging.csproj", "{C477A9CD-E465-486A-81E9-F9632D49E6F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssembly.Services.Messaging", "Services\BlazorWebAssembly.Services.Messaging\BlazorWebAssembly.Services.Messaging.csproj", "{C477A9CD-E465-486A-81E9-F9632D49E6F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly.Services.Mapping", "Services\BlazorWebAssembly.Services.Mapping\BlazorWebAssembly.Services.Mapping.csproj", "{D1E64CF0-0228-4D40-9CAF-7610BDDC23B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssembly.Services.Mapping", "Services\BlazorWebAssembly.Services.Mapping\BlazorWebAssembly.Services.Mapping.csproj", "{D1E64CF0-0228-4D40-9CAF-7610BDDC23B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly.Common", "BlazorWebAssembly.Common\BlazorWebAssembly.Common.csproj", "{A8CA6BE1-536B-41A8-B775-C8077AF2A75D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssembly.Common", "BlazorWebAssembly.Common\BlazorWebAssembly.Common.csproj", "{A8CA6BE1-536B-41A8-B775-C8077AF2A75D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{49DB05CC-D058-4658-88D1-760F781706C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly.Server", "Web\BlazorWebAssembly\Server\BlazorWebAssembly.Server.csproj", "{C3DE8C32-A9AF-47BE-B760-65B31E454B8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly.Client", "Web\BlazorWebAssembly\Client\BlazorWebAssembly.Client.csproj", "{C31A66EF-A2CF-4515-B068-773BB63046DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly.Shared", "Web\BlazorWebAssembly\Shared\BlazorWebAssembly.Shared.csproj", "{AB5139E4-6EAB-4A73-B713-910DF97D85A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly.Infrastructure", "BlazorWebAssembly.Infrastructure\BlazorWebAssembly.Infrastructure.csproj", "{50EAFD3D-AC2B-43B6-A183-66B30664783E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +67,22 @@ Global
 		{A8CA6BE1-536B-41A8-B775-C8077AF2A75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8CA6BE1-536B-41A8-B775-C8077AF2A75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8CA6BE1-536B-41A8-B775-C8077AF2A75D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DE8C32-A9AF-47BE-B760-65B31E454B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3DE8C32-A9AF-47BE-B760-65B31E454B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3DE8C32-A9AF-47BE-B760-65B31E454B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3DE8C32-A9AF-47BE-B760-65B31E454B8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C31A66EF-A2CF-4515-B068-773BB63046DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C31A66EF-A2CF-4515-B068-773BB63046DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C31A66EF-A2CF-4515-B068-773BB63046DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C31A66EF-A2CF-4515-B068-773BB63046DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB5139E4-6EAB-4A73-B713-910DF97D85A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB5139E4-6EAB-4A73-B713-910DF97D85A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB5139E4-6EAB-4A73-B713-910DF97D85A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB5139E4-6EAB-4A73-B713-910DF97D85A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50EAFD3D-AC2B-43B6-A183-66B30664783E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50EAFD3D-AC2B-43B6-A183-66B30664783E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50EAFD3D-AC2B-43B6-A183-66B30664783E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50EAFD3D-AC2B-43B6-A183-66B30664783E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +94,10 @@ Global
 		{F054FDBD-ABD2-488F-8595-859E3CF5317B} = {2287C6A8-812A-4BD5-A6EA-1F6BF044ECF2}
 		{C477A9CD-E465-486A-81E9-F9632D49E6F3} = {2287C6A8-812A-4BD5-A6EA-1F6BF044ECF2}
 		{D1E64CF0-0228-4D40-9CAF-7610BDDC23B3} = {2287C6A8-812A-4BD5-A6EA-1F6BF044ECF2}
+		{C3DE8C32-A9AF-47BE-B760-65B31E454B8D} = {49DB05CC-D058-4658-88D1-760F781706C0}
+		{C31A66EF-A2CF-4515-B068-773BB63046DB} = {49DB05CC-D058-4658-88D1-760F781706C0}
+		{AB5139E4-6EAB-4A73-B713-910DF97D85A2} = {49DB05CC-D058-4658-88D1-760F781706C0}
+		{50EAFD3D-AC2B-43B6-A183-66B30664783E} = {49DB05CC-D058-4658-88D1-760F781706C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {64143DCE-E2C0-4C9C-84A0-2FCF0F8518EC}
