@@ -1,0 +1,54 @@
+﻿@page "/administration"
+@using BlazorWebAssembly.Web.Shared
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+
+@attribute [Authorize(Roles = "Administrator")]
+@inject HttpClient Http
+
+<PageTitle>Admin</PageTitle>
+
+<h1>Test</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+ <button @onclick="OnPost">
+        Update heading
+    </button>
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{   
+   <p>@forecasts.Name</p>
+
+}
+
+@code {
+    private Demo? forecasts;
+
+    [Parameter]
+    public string Name { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        try
+        {
+            forecasts = await Http.GetFromJsonAsync<Demo>("DemoAdministration");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+    public async Task OnPost()
+    {
+        Name = "Pesho";
+        await Http.PostAsJsonAsync("DemoAdministration", Name);
+        var response = await Http.GetAsync("/DemoAdministration");
+
+    }
+
+}

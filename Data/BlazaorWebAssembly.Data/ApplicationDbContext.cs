@@ -2,29 +2,31 @@
 using BlazorWebAssembly.Data.Models.DeletableModels.Interfaces;
 using BlazorWebAssembly.Data.Models.DemoModels;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
+using Duende.IdentityServer.EntityFramework.Options;
 
 namespace BlazorWebAssembly.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
+    public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
         private static readonly MethodInfo SetIsDeletedQueryFilterMethod =
            typeof(ApplicationDbContext).GetMethod(
                nameof(SetIsDeletedQueryFilter),
                BindingFlags.NonPublic | BindingFlags.Static);
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
+
+        public ApplicationDbContext(
+           DbContextOptions options,
+           IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
-
-        public DbSet<Demo> Demos { get; set; }
+        
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -126,12 +128,4 @@ namespace BlazorWebAssembly.Data
             }
         }
     }
-    //public class ApplicationDbContext1 : ApiAuthorizationDbContext<ApplicationUser>
-    //{
-    //    public ApplicationDbContext1(
-    //        DbContextOptions options,
-    //        IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
-    //    {
-    //    }
-    //}
 }
