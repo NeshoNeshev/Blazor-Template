@@ -10,30 +10,26 @@ namespace BlazorWebAssembly.Data.Seeding
     {
         public static void SeedRoles(RoleManager<IdentityRole> roleManager)
         {
-            AddRoleIfNotExists(roleManager, GlobalConstants.AdministratorRoleName);
-            AddRoleIfNotExists(roleManager, "Moderator");
-            AddRoleIfNotExists(roleManager, "Company");
-            AddRoleIfNotExists(roleManager, "Proffesional");
+            AddRoles(roleManager, GlobalConstants.AdministratorRoleName);
+            AddRoles(roleManager, "Moderator");    
         }
         public static void SeedUsers(UserManager<ApplicationUser> userManager)
         {
             (string name, string password, string role)[] demoUsers = new[]
             {
                 (name: GlobalConstants.AdministratorUserName, password: GlobalConstants.AdministratorPassword, role: GlobalConstants.AdministratorRoleName),
-                (name: "bob@bob.com", password: "Passw0rd!", role: "Moderator"),
-                (name: "abi@abi.com", password: "Company!", role: "Company"),
-                (name: "nesho1978@abv.bg", password:"nesho1978", role: "Proffesional"),
-                (name: "fred@fred.com", password: "Passw0rd!", role: "")
+                (name: "moderaator@moderator.com", password: "Moderator!", role: "Moderator"),
+               
             };
 
             foreach ((string name, string password, string role) user in demoUsers)
             {
-                AddUserIfNotExists(userManager, user);
+                AddUsers(userManager, user);
             }
 
         }
 
-        private static void AddUserIfNotExists(UserManager<ApplicationUser> userManager, (string name, string password, string role) demoUser)
+        private static void AddUsers(UserManager<ApplicationUser> userManager, (string name, string password, string role) demoUser)
         {
             ApplicationUser user = userManager.FindByNameAsync(demoUser.name).Result;
             if (user == default)
@@ -58,7 +54,7 @@ namespace BlazorWebAssembly.Data.Seeding
 
             }
         }
-        private static void AddRoleIfNotExists(RoleManager<IdentityRole> roleManager, string roleName)
+        private static void AddRoles(RoleManager<IdentityRole> roleManager, string roleName)
         {
             if (roleManager.FindByNameAsync(roleName).Result == default)
             {

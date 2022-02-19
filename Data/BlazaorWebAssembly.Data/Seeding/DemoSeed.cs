@@ -1,20 +1,23 @@
 ﻿using BlazorWebAssembly.Data.Models.DemoModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BlazorWebAssembly.Data.Seeding
 {
-    public class DemoSeed : ISeeder
+    public static class DemoSeed 
     {
-        public void Seed(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
+        public static void SeedDemos(ApplicationDbContext dbContext)
         {
-           
-            //dbContext.SaveChangesAsync();
-        }
 
-        public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
-        {
+            var demos = new List<Demo>() { new Demo { Name = "FirstDemo" }, new Demo { Name = "SecondDemo"} };
+            if (dbContext.Demos.Any())
+            {
+                return;
+            }
+            dbContext.Demos.AddRange(demos);
+            dbContext.SaveChanges();
         }
     }
 }

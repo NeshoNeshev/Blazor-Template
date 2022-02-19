@@ -1,6 +1,5 @@
 ﻿using BlazorWebAssembly.Data.Models.ApplicationModels;
 using BlazorWebAssembly.Data.Models.DeletableModels.Interfaces;
-using BlazorWebAssembly.Data.Models.DemoModels;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Duende.IdentityServer.EntityFramework.Options;
+using BlazorWebAssembly.Data.Models.DemoModels;
 
 namespace BlazorWebAssembly.Data
 {
@@ -26,7 +26,9 @@ namespace BlazorWebAssembly.Data
            IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
-        
+
+        //Database Models
+        public DbSet<Demo> Demos { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

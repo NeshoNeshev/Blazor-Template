@@ -10,8 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\BlazaorWebAssembly.Data\BlazorWebAssembly.Data.csproj" />
     <ProjectReference Include="..\..\Data\BlazorWebAssembly.Data.Models\BlazorWebAssembly.Data.Models.csproj" />
-    <ProjectReference Include="..\..\Repository\BlazorWebAssembly.Repository\BlazorWebAssembly.Repository.csproj" />
+    <ProjectReference Include="..\..\Web\BlazorWebAssembly.Web\Shared\BlazorWebAssembly.Web.Shared.csproj" />
+    <ProjectReference Include="..\BlazorWebAssembly.Services.Mapping\BlazorWebAssembly.Services.Mapping.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿using BlazorWebAssembly.Data.Models.DemoModels;
+﻿using BlazaorWebAssembly.Services.Interfaces;
+using BlazorWebAssembly.Data.Models.DemoModels;
+using BlazorWebAssembly.Web.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,24 +11,25 @@ namespace BlazorWebAssembly.Web.Server.Controllers
     [Route("[controller]")]
     public class DemoAdministrationController : ControllerBase
     {
-       
-        public DemoAdministrationController()
-        {
+        private readonly IDemoService demoService;
 
+        public DemoAdministrationController(IDemoService demoService)
+        {
+            this.demoService = demoService;
         }
         [HttpGet]
-        public Demo Get()
+        public DemoViewModel Get()
         {
-            return new Demo() { Name = "Administrator" };
+            return this.demoService.GetDemo("FirstDemo");
         }
 
         [HttpPost]
         public IActionResult Post([FromBody] string name)
         {
-            var na = new Demo() { Name = name };
-            if (na != null)
+            var demo = this.demoService.CreateDemo(name);
+            if (demo != null)
             {
-                return Ok(na);
+                return Ok(demo);
             }
             return BadRequest();
         }

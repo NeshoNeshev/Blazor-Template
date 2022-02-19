@@ -3,8 +3,6 @@ using BlazaorWebAssembly.Services.Interfaces;
 using BlazorWebAssembly.Data;
 using BlazorWebAssembly.Data.Models.ApplicationModels;
 using BlazorWebAssembly.Data.Seeding;
-using BlazorWebAssembly.Repository;
-using BlazorWebAssembly.Repository.Interfaces;
 using BlazorWebAssembly.Services.Mapping;
 using BlazorWebAssembly.Web.Shared;
 using IdentityModel;
@@ -48,18 +46,6 @@ builder.Services.AddRazorPages();
 //Application services
 builder.Services.AddTransient<IDemoService,DemoService>();
 
-// Data repositories
-builder.Services.AddScoped(typeof(IDeletableRepository<>), typeof(DeletableRepository<>));
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped<IDbQueryRunner, DbQueryRunner>();
-
-
-//Radzen
-//builder.Services.AddScoped<DialogService>();
-//builder.Services.AddScoped<NotificationService>();
-//builder.Services.AddScoped<TooltipService>();
-//builder.Services.AddScoped<ContextMenuService>();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -84,6 +70,7 @@ using (var serviceScope = app.Services.CreateScope())
     var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
     ApplicationDbInitialiser.SeedRoles(roleManager);
     ApplicationDbInitialiser.SeedUsers(userManager);
+    DemoSeed.SeedDemos(dbContext);
     
 }
 app.UseHttpsRedirection();

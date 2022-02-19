@@ -21,10 +21,7 @@ namespace BlazorWebAssembly.Data.Seeding
 
             var seeders = new List<ISeeder>
             {
-                new RolesSeeder(),
-                new UserSeeder(),
-                //todo: check demo
-                new DemoSeed(),
+           
             };
 
             foreach (var seeder in seeders)

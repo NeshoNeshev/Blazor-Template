@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Data\BlazaorWebAssembly.Data\BlazorWebAssembly.Data.csproj" />
-    <ProjectReference Include="..\..\..\Repository\BlazorWebAssembly.Repository\BlazorWebAssembly.Repository.csproj" />
     <ProjectReference Include="..\..\..\Services\BlazaorWebAssembly.Services\BlazaorWebAssembly.Services.csproj" />
     <ProjectReference Include="..\..\..\Services\BlazorWebAssembly.Services.Mapping\BlazorWebAssembly.Services.Mapping.csproj" />
     <ProjectReference Include="..\Client\BlazorWebAssembly.Web.Client.csproj" />

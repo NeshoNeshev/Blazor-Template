@@ -2,6 +2,7 @@
 @using BlazorWebAssembly.Web.Shared
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using System.ComponentModel.DataAnnotations
 
 @attribute [Authorize(Roles = "Administrator")]
 @inject HttpClient Http
@@ -23,30 +24,46 @@ else
    <p>@forecasts.Name</p>
 
 }
+<EditForm Model="@inputModel" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <p>
+        <label>
+            Name:
+            <InputText @bind-Value="inputModel.Name" />
+        </label>
+    </p>
+    <button type="submit">Submit</button>
+</EditForm>
 
 @code {
-    private Demo? forecasts;
+    private DemoViewModel? forecasts;
 
-    [Parameter]
-    public string Name { get; set; }
+    private DemoInputModel inputModel;
 
     protected override async Task OnInitializedAsync()
     {
-
+        inputModel = new DemoInputModel();
 
         try
         {
-            forecasts = await Http.GetFromJsonAsync<Demo>("DemoAdministration");
+            forecasts = await Http.GetFromJsonAsync<DemoViewModel>("DemoAdministration");
         }
         catch (AccessTokenNotAvailableException exception)
         {
             exception.Redirect();
         }
     }
+     private void HandleValidSubmit()
+    {
+       Http.PostAsJsonAsync("DemoAdministration", inputModel.Name);
+
+        // Process the valid form
+    }
     public async Task OnPost()
     {
-        Name = "Pesho";
-        await Http.PostAsJsonAsync("DemoAdministration", Name);
+        
         var response = await Http.GetAsync("/DemoAdministration");
 
     }

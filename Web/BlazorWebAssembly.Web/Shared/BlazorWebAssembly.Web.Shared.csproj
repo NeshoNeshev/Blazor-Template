@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\BlazorWebAssembly.Data.Models\BlazorWebAssembly.Data.Models.csproj" />
+    <ProjectReference Include="..\..\..\Services\BlazorWebAssembly.Services.Mapping\BlazorWebAssembly.Services.Mapping.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 </Project>
