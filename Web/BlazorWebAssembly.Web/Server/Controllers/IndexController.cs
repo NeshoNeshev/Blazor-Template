@@ -1,5 +1,6 @@
 ﻿using BlazorWebAssembly.Data.Models.DemoModels;
 using BlazorWebAssembly.Web.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorWebAssembly.Web.Server.Controllers

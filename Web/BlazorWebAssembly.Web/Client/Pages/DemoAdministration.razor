@@ -10,7 +10,13 @@
 <PageTitle>Administration</PageTitle>
 
 <h1 class= "text-center">Administration</h1>
+<AuthorizeView Roles="Administrator">
+    <Authorized>
+        <h1>Hello, @context.User.Identity.Name!</h1>
+        <p>You can only see this content if you're Administrator.</p>
 
+    </Authorized>
+</AuthorizeView>
 
 @if (viewModel == null)
 {

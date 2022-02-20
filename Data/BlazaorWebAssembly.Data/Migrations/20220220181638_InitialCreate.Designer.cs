@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorWebAssembly.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220219121810_CreateDemo")]
-    partial class CreateDemo
+    [Migration("20220220181638_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

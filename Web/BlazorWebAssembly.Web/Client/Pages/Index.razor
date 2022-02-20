@@ -6,15 +6,31 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1 class = "text-center">HELLO & WELCOME</h1>
-<h3 class = "text-center">@viewModel?.Name</h3>
-<AuthorizeView Roles="Administrator">
-    <Authorized>
-        <h1>Hello, @context.User.Identity.Name!</h1>
-        <p>You can only see this content if you're Administrator.</p>
+<h1 class="text-center">HELLO & WELCOME</h1>
+<h3 class="text-center">@viewModel?.Name</h3>
 
-    </Authorized>
-</AuthorizeView>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">User Name</th>
+            <th scope="col">Password</th>
+            <th scope="col">Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>moderator@moderator.com</td>
+            <td>Moderator!</td>
+            <td>Moderator</td>
+        </tr>
+         <tr>
+            <td>admin@admin.com</td>
+            <td>Administrator123</td>
+            <td>Administrator</td>
+        </tr>
+    </tbody>
+</table>
 
 
 <SurveyPrompt Title="How is Blazor themplate working for you?" />
@@ -24,16 +40,18 @@
 
     protected override async Task OnInitializedAsync()
     {
+
         //This component demonstrate how to return data from controller with No Authentication Client.
         var client = ClientFactory.CreateClient("BlazorWebAssembly.Web.ServerAPI.NoAuthenticationClient");
         try
         {
-            viewModel  = await client.GetFromJsonAsync<DemoViewModel>("Index");
+            viewModel = await client.GetFromJsonAsync<DemoViewModel>("Index");
         }
         catch (AccessTokenNotAvailableException exception)
         {
             exception.Redirect();
         }
+        base.OnInitialized();
     }
 
 }

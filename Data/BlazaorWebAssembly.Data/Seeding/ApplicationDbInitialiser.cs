@@ -11,15 +11,15 @@ namespace BlazorWebAssembly.Data.Seeding
         public static void SeedRoles(RoleManager<IdentityRole> roleManager)
         {
             AddRoles(roleManager, GlobalConstants.AdministratorRoleName);
-            AddRoles(roleManager, "Moderator");    
+            AddRoles(roleManager, GlobalConstants.ModeratorRoleName);
         }
         public static void SeedUsers(UserManager<ApplicationUser> userManager)
         {
             (string name, string password, string role)[] demoUsers = new[]
             {
                 (name: GlobalConstants.AdministratorUserName, password: GlobalConstants.AdministratorPassword, role: GlobalConstants.AdministratorRoleName),
-                (name: "moderaator@moderator.com", password: "Moderator!", role: "Moderator"),
-               
+                (name: GlobalConstants.ModeratorUserName, password: GlobalConstants.ModeratorPassword, role: GlobalConstants.ModeratorRoleName),
+
             };
 
             foreach ((string name, string password, string role) user in demoUsers)
