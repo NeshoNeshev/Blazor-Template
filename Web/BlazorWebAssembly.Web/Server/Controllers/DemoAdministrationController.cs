@@ -24,14 +24,14 @@ namespace BlazorWebAssembly.Web.Server.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] string name)
+        public IActionResult Post([FromBody] string? name)
         {
             var demo = this.demoService.CreateDemo(name);
             if (demo != null)
             {
                 return Ok(demo);
             }
-            return BadRequest();
+            return BadRequest("Exist");
         }
     }
 }

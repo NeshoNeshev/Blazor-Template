@@ -1,4 +1,5 @@
 ﻿using BlazorWebAssembly.Data.Models.DemoModels;
+using BlazorWebAssembly.Web.Shared;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorWebAssembly.Web.Server.Controllers
@@ -6,17 +7,17 @@ namespace BlazorWebAssembly.Web.Server.Controllers
 
     [ApiController]
     [Route("[controller]")]
-    public class DemoController : ControllerBase
+    public class IndexController : ControllerBase
     {
-        public DemoController()
+        public IndexController()
         {
 
         }
 
         [HttpGet]
-        public Demo Get()
+        public DemoViewModel Get()
         {
-            return new Demo() { Name = "Pesho" };
+            return new DemoViewModel() { Name = "I`M NESHO NESHEV" };
         }
     }
 }

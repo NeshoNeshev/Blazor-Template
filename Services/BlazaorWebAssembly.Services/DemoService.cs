@@ -16,23 +16,7 @@ namespace BlazaorWebAssembly.Services
         {
             this.dbContext = dbContext;
         }
-        //private readonly IDeletableRepository<Demo> demoRepository;
-
-        //public DemoService(IDeletableRepository<Demo> demoRepository)
-        //{
-        //    this.demoRepository = demoRepository;
-        //}
-
-        //public Demo GetAll<T>(int? count = null)
-        //{
-        //    IQueryable<Demo> query = this.demoRepository.All().OrderBy(x => x.Name);
-        //    if (count.HasValue)
-        //    {
-        //        query = query.Take(count.Value);
-        //    }
-
-        //    return query.First();
-        //}
+       
         public int GetCount()
         {
             return this.dbContext.Demos.Count();
@@ -41,8 +25,6 @@ namespace BlazaorWebAssembly.Services
         public DemoViewModel GetDemo(string name)
         {
             var demo = this.dbContext.Demos.Where(x => x.Name == name).To<DemoViewModel>().First();
-
-
             return demo;
         }
         public string CreateDemo(string name)

@@ -7,24 +7,28 @@
 @attribute [Authorize(Roles = "Administrator")]
 @inject HttpClient Http
 
-<PageTitle>Admin</PageTitle>
+<PageTitle>Administration</PageTitle>
 
-<h1>Test</h1>
+<h1 class= "text-center">Administration</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
- <button @onclick="OnPost">
-        Update heading
-    </button>
-@if (forecasts == null)
+
+@if (viewModel == null)
 {
+    
     <p><em>Loading...</em></p>
 }
 else
 {   
-   <p>@forecasts.Name</p>
+    <h4 class = "text-center">This is response on Administration Controller => @viewModel.Name</h4>
 
 }
-<EditForm Model="@inputModel" OnValidSubmit="@HandleValidSubmit">
+<div class="card text-center">
+  <div class="card-header">
+   Post only is in role Administrator
+  </div>
+  <div class="card-body">
+    
+    <EditForm Model="@inputModel" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -36,11 +40,17 @@ else
     </p>
     <button type="submit">Submit</button>
 </EditForm>
+  </div>
+  <div class="card-footer text-muted">
+    @DateTime.UtcNow.Date.Year
+  </div>
+</div>
+
 
 @code {
-    private DemoViewModel? forecasts;
+    private DemoViewModel? viewModel;
 
-    private DemoInputModel inputModel;
+    private DemoInputModel? inputModel;
 
     protected override async Task OnInitializedAsync()
     {
@@ -48,24 +58,16 @@ else
 
         try
         {
-            forecasts = await Http.GetFromJsonAsync<DemoViewModel>("DemoAdministration");
+            viewModel = await Http.GetFromJsonAsync<DemoViewModel>("DemoAdministration");
         }
         catch (AccessTokenNotAvailableException exception)
         {
             exception.Redirect();
         }
     }
-     private void HandleValidSubmit()
+    private void HandleValidSubmit()
     {
-       Http.PostAsJsonAsync("DemoAdministration", inputModel.Name);
-
-        // Process the valid form
-    }
-    public async Task OnPost()
-    {
-        
-        var response = await Http.GetAsync("/DemoAdministration");
+        var response = Http.PostAsJsonAsync("DemoAdministration", inputModel?.Name);
 
     }
-
 }

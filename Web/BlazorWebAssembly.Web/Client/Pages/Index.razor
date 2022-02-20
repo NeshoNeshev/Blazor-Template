@@ -1,25 +1,39 @@
 ﻿@page "/"
+@using BlazorWebAssembly.Web.Shared
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 
 @inject IHttpClientFactory ClientFactory
+
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
-
-<AuthorizeView Roles= "Administrator" >
+<h1 class = "text-center">HELLO & WELCOME</h1>
+<h3 class = "text-center">@viewModel?.Name</h3>
+<AuthorizeView Roles="Administrator">
     <Authorized>
         <h1>Hello, @context.User.Identity.Name!</h1>
         <p>You can only see this content if you're Administrator.</p>
-        
+
     </Authorized>
 </AuthorizeView>
 
 
-<SurveyPrompt Title="How is Blazor working for you?" />
-@code{
-    protected override Task OnInitializedAsync()
+<SurveyPrompt Title="How is Blazor themplate working for you?" />
+@code {
+
+    private DemoViewModel? viewModel;
+
+    protected override async Task OnInitializedAsync()
     {
+        //This component demonstrate how to return data from controller with No Authentication Client.
         var client = ClientFactory.CreateClient("BlazorWebAssembly.Web.ServerAPI.NoAuthenticationClient");
-        return base.OnInitializedAsync();
+        try
+        {
+            viewModel  = await client.GetFromJsonAsync<DemoViewModel>("Index");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
     }
 
 }
