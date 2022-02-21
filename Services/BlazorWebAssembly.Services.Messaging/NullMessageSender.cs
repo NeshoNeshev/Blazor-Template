@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using BlazorWebAssembly.Services.Messaging.Interfaces;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BlazorWebAssembly.Services.Messaging
 {
-    public class NullMessageSender
+    public class NullMessageSender : IEmailSender
     {
         public Task SendEmailAsync(
             string from,

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.17.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.2" />
   </ItemGroup>
 
@@ -15,6 +16,7 @@
     <ProjectReference Include="..\..\..\Data\BlazaorWebAssembly.Data\BlazorWebAssembly.Data.csproj" />
     <ProjectReference Include="..\..\..\Services\BlazaorWebAssembly.Services\BlazaorWebAssembly.Services.csproj" />
     <ProjectReference Include="..\..\..\Services\BlazorWebAssembly.Services.Mapping\BlazorWebAssembly.Services.Mapping.csproj" />
+    <ProjectReference Include="..\..\..\Services\BlazorWebAssembly.Services.Messaging\BlazorWebAssembly.Services.Messaging.csproj" />
     <ProjectReference Include="..\Client\BlazorWebAssembly.Web.Client.csproj" />
     <ProjectReference Include="..\Shared\BlazorWebAssembly.Web.Shared.csproj" />
   </ItemGroup>

@@ -18,6 +18,14 @@
     </Authorized>
 </AuthorizeView>
 
+<AuthorizeView Roles="Moderator">
+    <Authorized>
+        <h1>Hello, @context.User.Identity.Name!</h1>
+        <p>You can only see this content if you're Moderator.</p>
+
+    </Authorized>
+</AuthorizeView>
+
 @if (viewModel == null)
 {
     

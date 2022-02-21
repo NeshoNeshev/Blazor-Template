@@ -1,5 +1,4 @@
 ﻿using BlazaorWebAssembly.Services.Interfaces;
-using BlazorWebAssembly.Data.Models.DemoModels;
 using BlazorWebAssembly.Web.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +30,7 @@ namespace BlazorWebAssembly.Web.Server.Controllers
             {
                 return Ok(demo);
             }
-            return BadRequest("Exist");
+            return BadRequest("Existing Demo");
         }
     }
 }

@@ -4,6 +4,8 @@ using BlazorWebAssembly.Data;
 using BlazorWebAssembly.Data.Models.ApplicationModels;
 using BlazorWebAssembly.Data.Seeding;
 using BlazorWebAssembly.Services.Mapping;
+using BlazorWebAssembly.Services.Messaging;
+using BlazorWebAssembly.Services.Messaging.Interfaces;
 using BlazorWebAssembly.Web.Shared;
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication;
@@ -43,8 +45,30 @@ builder.Services.AddAuthentication()
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+//Uncomment as you configure Cloudinary in appsettings.json
+
+//var account = new Account
+//           (
+//               builder.Configuration["Cloudinary:AppName"],
+//               builder.Configuration["Cloudinary:AppKey"],
+//               builder.Configuration["Cloudinary:AppSecret"]
+//      );
+
+//Cloudinary cloudinary = new Cloudinary(account);
+//cloudinary.Api.Secure = true;
+
 //Application services
-builder.Services.AddTransient<IDemoService,DemoService>();
+
+//Uncomment as you type SendGridApiKey in appsettings.json
+
+//builder.Services.AddTransient<IEmailSender>(
+//                serviceProvider => new SendGridEmailSender(builder.Configuration["SendGrid:ApiKey"]));
+builder.Services.AddTransient<IDemoService, DemoService>();
+builder.Services.AddTransient<IEmailSender, NullMessageSender>();
+
+//builder.Services.AddSingleton(cloudinary);
+
+
 
 var app = builder.Build();
 
@@ -71,7 +95,7 @@ using (var serviceScope = app.Services.CreateScope())
     ApplicationDbInitialiser.SeedRoles(roleManager);
     ApplicationDbInitialiser.SeedUsers(userManager);
     DemoSeed.SeedDemos(dbContext);
-    
+
 }
 app.UseHttpsRedirection();
 
