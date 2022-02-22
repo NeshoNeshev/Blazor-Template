@@ -260,4 +260,7 @@ namespace BlazorWebAssembly.Web.Server.Controllers
 If you are having problems, please let me know by [raising a new issue](https://github.com/NeshoNeshev/BlazorWebAssembly-Template/issues).
 
 
+## License
+
+This project is licensed with the [MIT license](LICENSE).
 
