@@ -46,7 +46,7 @@ This solution folder contains three subfolders:
 
 #### BlazorWebAssembly.Services
 
-[BlazorWebAssembly.Services](https://github.com/NeshoNeshev/BlazorWebAssembly-Template/tree/master/Services/BlazaorWebAssembly.Services) wil contains service layer logic and Cloudinary service that uploads photos to Cloudinary(https://cloudinary.com/)..
+[BlazorWebAssembly.Services](https://github.com/NeshoNeshev/BlazorWebAssembly-Template/tree/master/Services/BlazaorWebAssembly.Services) wil contains service layer logic and Cloudinary service that uploads photos to Cloudinary(https://cloudinary.com/)
 
 #### BlazorWebAssembly.Services.Mapping
 
