@@ -252,7 +252,7 @@ namespace BlazorWebAssembly.Web.Server.Controllers
 
 #### BlazorWebAssembly.Web.Shared
 
-[BlazorWebAssembly.Web.Shared](https://github.com/NeshoNeshev/BlazorWebAssembly-Template/tree/master/Web/BlazorWebAssembly.Web/Shared) contains objects, which will be mapped from/to our entities and used in the front-end/back-end..
+[BlazorWebAssembly.Web.Shared](https://github.com/NeshoNeshev/BlazorWebAssembly-Template/tree/master/Web/BlazorWebAssembly.Web/Shared) contains view models that are mapped from backend to fronted. 
 
 ## Support
 
