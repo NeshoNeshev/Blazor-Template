@@ -33,7 +33,7 @@ This solution folder contains two subfolders:
 
 #### BlazorWebAssembly.Data.Models
 
-[BlazorWebAssembly.Data.Models](https://github.com/NeshoNeshev/BlazorWebAssembly-Template/tree/master/Data/BlazorWebAssembly.Data.Models) provides abstract generics classes and interfaces, which holds information about our entities. For example when the object is Created, Modified, Deleted or IsDeleted. It contains a property for the primary key as well. contains Deletable Models ApplicationUser and ApplicationRole classes, which inherits IdentityRole and IdentityUsers.
+[BlazorWebAssembly.Data.Models](https://github.com/NeshoNeshev/BlazorWebAssembly-Template/tree/master/Data/BlazorWebAssembly.Data.Models) contains backend models, Deletable Models ApplicationUser and ApplicationRole classes and interfaces.
 
 
 ### Services
