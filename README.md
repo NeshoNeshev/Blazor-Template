@@ -16,7 +16,7 @@ A ready to use template for Blazor with services, models mapping, cloudinary and
 
 ### Common
 
-** BlazorWebAssembly.Common** contains common things for the project solution. For example:
+** BlazorWebAssembly.Common** contains global things. For example:
 
 - [GlobalConstants.cs](https://github.com/NeshoNeshev/BlazorWebAssembly-Template/blob/master/BlazorWebAssembly.Common/GlobalConstants.cs).
 
