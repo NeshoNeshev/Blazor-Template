@@ -1,6 +1,6 @@
 # Blazor WebAssembly Asp Net Hosted Template
 
-A ready-to-use template for Blazor with services, models mapping and  DI.
+A ready to use template for Blazor with services, models mapping, cloudinary and roles.
 ## Framework  and Language version
 -	Dot Net 6.0
 -	C# 10
