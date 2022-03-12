@@ -1,4 +1,4 @@
-# Blazor WebAssembly Asp Net Hosted Template
+# Blazor Asp Net Hosted Template
 
 A ready to use template for Blazor with services, models mapping, cloudinary and roles.
 ## Framework  and Language version
